@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import ButtonAgregar from './ButtonAgregar';
 
 const styles = {
   producto: {
@@ -25,6 +26,12 @@ class ProductoItem extends Component {
         />
         <h3>{producto.name}</h3>
         <p>{producto.price}</p>
+
+        <ButtonAgregar
+          onClick={() => agregarAlCarro(producto)}
+        >
+          Agregar al carro
+        </ButtonAgregar>
       </div>
     );
   }
