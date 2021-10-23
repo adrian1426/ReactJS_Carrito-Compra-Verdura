@@ -20,7 +20,7 @@ const styles = {
 
 class Carro extends Component {
   render() {
-    const { carro } = this.props;
+    const { carro, visibleDetalle, mostrarCarro } = this.props;
     const cantidad = carro.reduce((accumulate, element) => accumulate + element.cantidad, 0);
 
     return (
@@ -28,8 +28,8 @@ class Carro extends Component {
         <span style={styles.bubble}>
           {cantidad > 0 && <BubbleAler value={cantidad} />}
         </span>
-        <button style={styles.carro}>Carro</button>
-        <DetalleCarro carro={carro} />
+        <button style={styles.carro} onClick={mostrarCarro}>Carro</button>
+        {visibleDetalle && <DetalleCarro carro={carro} />}
       </div>
     );
   }
