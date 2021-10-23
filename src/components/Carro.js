@@ -19,10 +19,13 @@ const styles = {
 
 class Carro extends Component {
   render() {
+    const { carro } = this.props;
+    const cantidad = carro.reduce((accumulate, element) => accumulate + element.cantidad, 0);
+
     return (
       <div>
         <span style={styles.bubble}>
-          <BubbleAler value={1} />
+          {cantidad > 0 && <BubbleAler value={cantidad} />}
         </span>
         <button style={styles.carro}>Carro</button>
       </div>
